@@ -2,9 +2,9 @@ import { useState } from 'react'
 export default function Board({switchCurrentPlayer, currentPlayer}){
 
     const [board, setBoard] = useState([
-                                        ' ', ' ', ' ',
-                                        ' ', ' ', ' ',
-                                        ' ', ' ', ' ',
+                                        '.', '.', '.',
+                                        '.', '.', '.',
+                                        '.', '.', '.',
                                     ])
 
     function updateBox(i, currentPlayer){
