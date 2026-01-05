@@ -8,6 +8,7 @@ export default function Board({switchCurrentPlayer, currentPlayer}){
                                     ])
 
     function updateBox(i, currentPlayer){
+        if(board[i] !== '.') return
         setBoard(board => {
             board[i] = currentPlayer
             return board
