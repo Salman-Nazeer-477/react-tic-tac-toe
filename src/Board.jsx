@@ -1,5 +1,5 @@
-import { useState } from 'react'
-export default function Board({switchCurrentPlayer, currentPlayer}){
+import { useState, useEffect } from 'react'
+export default function Board({switchCurrentPlayer, currentPlayer, setVictor}){
 
     const [board, setBoard] = useState([
                                         '.', '.', '.',
@@ -15,6 +15,27 @@ export default function Board({switchCurrentPlayer, currentPlayer}){
         })
         switchCurrentPlayer()
     }
+
+    function victory(board){
+        let victor = null
+        // horizontal:
+        if(board[0]===board[1] && board[1] === board[2]) victor = board[0]
+        if(board[3]===board[4] && board[4] === board[5]) victor = board[3]
+        if(board[6]===board[7] && board[7] === board[8]) victor = board[6]
+        // vertical:
+        if(board[0]===board[3] && board[3] === board[6]) victor = board[0]
+        if(board[1]===board[4] && board[4] === board[7]) victor = board[1]
+        if(board[2]===board[5] && board[5] === board[8]) victor = board[2]
+        // diagonal
+        if(board[0]===board[4] && board[4] === board[8]) victor = board[0]
+        if(board[2]===board[4] && board[4] === board[6]) victor = board[2]
+
+        setVictor(victor)
+    }
+
+    useEffect(() => {
+        victory(board)
+    }, [board])
     return (
         <>
             <div className="row">
