@@ -4,7 +4,7 @@ import './App.css'
 
 function App() {
   const [currentPlayer, setCurrentPlayer] = useState("X")
-  const [victor, setVictor] = useState(null)
+  const [victor, setVictor] = useState("")
   function switchCurrentPlayer() {
     setCurrentPlayer(currentPlayer => {
       return currentPlayer === "X" ? "O" : "X"
@@ -20,8 +20,8 @@ function App() {
         setVictor={setVictor}
       />
       <h3>
-        {victor && `Victor is ${victor}!`
-        
+        {
+          victor?`Victor is ${victor}!`:' ' 
         }
       </h3>
     </>
