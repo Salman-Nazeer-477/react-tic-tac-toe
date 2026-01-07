@@ -13,6 +13,10 @@ export default function Board({ switchCurrentPlayer, currentPlayer, setVictor })
         switchCurrentPlayer()
     }
 
+    function resetBoard(){
+        setBoard(Array(9).fill(null))
+        if(currentPlayer==="O") switchCurrentPlayer()
+    }
     
 
     return (
@@ -32,7 +36,7 @@ export default function Board({ switchCurrentPlayer, currentPlayer, setVictor })
                 <button onClick={() => { updateBox(7, currentPlayer) }} className="box">{board[7]}</button>
                 <button onClick={() => { updateBox(8, currentPlayer) }} className="box">{board[8]}</button>
             </div>
-            <div><button onClick={() => setBoard(Array(9).fill(null))}>Reset</button></div>
+            <div><button onClick={ resetBoard }>Reset</button></div>
         </>
     )
 }
