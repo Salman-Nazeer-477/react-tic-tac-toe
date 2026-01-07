@@ -53,6 +53,7 @@ export default function Board({switchCurrentPlayer, currentPlayer, setVictor}){
                 <button onClick={() => {updateBox(7, currentPlayer)}} className="box">{board[7]}</button>
                 <button onClick={() => {updateBox(8, currentPlayer)}} className="box">{board[8]}</button>
             </div>
+            <div><button onClick={() => setBoard(Array(9).fill('.'))}>Reset</button></div>
         </>
     )
 }
